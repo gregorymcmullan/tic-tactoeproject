@@ -8,7 +8,7 @@ public class MyTicProject{
 		static String choice;
 		static String myName;
 		
-		static int Board[][][] = new int[3][3][3];
+		static int Board[][][] = new int[4][4][4];
 		static boolean theWinner = false;
 		static boolean theMove = false;
 		static String winner = "";
@@ -29,7 +29,7 @@ public class MyTicProject{
 						
 						for (int i = 0; i < lines; i++)
 							{
-								String move = "";
+								String move = "  ";
 							
 						for (int j = 0; j < lines; j++)
 							{
@@ -89,39 +89,41 @@ public class MyTicProject{
 
 		public static void showBoard()
 			{
-				String theRow = " ";
-				for (int i = 3; i >= 0; i++)
-					{
-						for (int j = 3; j >= 0; j++)
-							{
-								for (int f = 3; f >= 0; f++)
-									{
-										System.out.println(" ");
-									}
-								System.out.println(Integer.toString(i) + Integer.toString(j));
-								for (int k = 0; k < 3; k++)
-									{
-										if (Board[i][j][k] == 0)
-											{
-												theRow += "_";
-											}
-										else if (Board[i][j][k] == 1)
-											{
-												theRow += "O";
-											}
-										else
-											{
-												theRow += "X";
-											}
-									}
-								System.out.println(theRow);
-								theRow = " ";
-							}
-						System.out.println();
-					}
-				System.out.println("      0 1 2 3");
-			}
+			String theRow = "  ";
+			for (int i = 3; i >= 0; i--)
+				{
+					for (int j = 3; j >= 0; j--)
+						{
+							for (int f = 0; f <=j ; f++)
+								{
+									System.out.println("  ");
+								}
+							System.out.println(Integer.toString(i) + Integer.toString(j));
+							for (int k = 0; k <= 3; k++)
+								{
+									if (Board[i][j][k] == 0)
+									
+										{
+											theRow += "_ ";
+										}
+									else if (Board[i][j][k] == 1)
+										{
+											theRow += "O ";
+										}
+									else
+										{
+											theRow += "X ";
+										}
+								}
+							System.out.println(theRow);
+							theRow = "  ";
+						}
+					System.out.println();
+				}
+			System.out.println("      0 1 2 3");
+		}
 
+		
 		public static void ifWin()
 			{
 				lookRC();
